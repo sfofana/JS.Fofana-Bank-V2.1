@@ -1,0 +1,42 @@
+<button type="button" mdbBtn color="primary" outline="true" rounded="true" class="ml-4 waves-light"  data-toggle="modal" data-target="#basicExample" (click)="signin.show()"
+              mdbWavesEffect>LAUNCH DEMO</button>
+
+<!-- Signin Modal -->
+<div mdbModal #signin="mdbModal" class="modal fade" id="frameModalTop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <!--Body-->
+      <div class="modal-body mb-0 p-0">
+        <div class="embed-responsive embed-responsive-16by9 z-depth-1-half">
+          <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/A3PDXmYoF5U" allowfullscreen></iframe>
+        </div>
+      </div>
+      <!--Footer-->
+      <div class="modal-footer justify-content-center flex-column flex-md-row">
+        <span>Share</span>
+        <div>
+          <a type="button" mdbBtn floating="true" size="sm" mdbBtn color="fb" class="waves-light" mdbWavesEffect>
+            <mdb-icon fab icon="facebook-f"></mdb-icon>
+          </a>
+          <!--Twitter-->
+          <a type="button" mdbBtn floating="true" size="sm" mdbBtn color="tw" class="waves-light" mdbWavesEffect>
+            <mdb-icon fab icon="twitter"></mdb-icon>
+          </a>
+          <!--Google +-->
+          <a type="button" mdbBtn floating="true" size="sm" mdbBtn color="gplus" class="waves-light" mdbWavesEffect>
+            <mdb-icon fab icon="google-plus"></mdb-icon>
+          </a>
+          <!--Linkedin-->
+          <a type="button" mdbBtn floating="true" size="sm" mdbBtn color="ins" class="waves-light" mdbWavesEffect>
+            <mdb-icon fab icon="linkedin-in"></mdb-icon>
+          </a>
+        </div>
+        <button type="button" mdbBtn color="primary" outline="true" rounded="true" class="ml-4 waves-light" mdbWavesEffect>TRY</button>
+        <button type="button" mdbBtn color="primary" outline="true" rounded="true" class="ml-4 waves-light" mdbWavesEffect data-dismiss="modal"
+          (click)="signin.hide()">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,148 @@
+<body>
+ 
+  <mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar">
+    <div class="container">
+      <a class="navbar-brand">
+        <strong>{{title}}</strong>
+      </a>
+      <app-sign-in></app-sign-in>
+      <button type="button" mdbBtn color="primary" outline="true" rounded="true" class="ml-4 waves-light"  data-toggle="modal" data-target="#basicExample" (click)="signin.show()"
+              mdbWavesEffect>Signin</button>
+              <button type="button" mdbBtn color="default" rounded="true" data-toggle="modal" data-target="#basicExample"
+  (click)="frame.show()" mdbWavesEffect>Launch Modal</button>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-7"
+        aria-controls="navbarSupportedContent-7" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+  </mdb-navbar>
+
+  <app-client></app-client>
+  <router-outlet></router-outlet>
+</body>
+
+<!-- Signin Modal -->
+<div mdbModal #signin="mdbModal" class="modal fade" id="frameModalTop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <!--Body-->
+      <div class="modal-body mb-0 p-0">
+        <div class="embed-responsive embed-responsive-16by9 z-depth-1-half">
+          <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/A3PDXmYoF5U" allowfullscreen></iframe>
+        </div>
+      </div>
+      <!--Footer-->
+      <div class="modal-footer justify-content-center flex-column flex-md-row">
+        <span>Share</span>
+        <div>
+          <a type="button" mdbBtn floating="true" size="sm" mdbBtn color="fb" class="waves-light" mdbWavesEffect>
+            <mdb-icon fab icon="facebook-f"></mdb-icon>
+          </a>
+          <!--Twitter-->
+          <a type="button" mdbBtn floating="true" size="sm" mdbBtn color="tw" class="waves-light" mdbWavesEffect>
+            <mdb-icon fab icon="twitter"></mdb-icon>
+          </a>
+          <!--Google +-->
+          <a type="button" mdbBtn floating="true" size="sm" mdbBtn color="gplus" class="waves-light" mdbWavesEffect>
+            <mdb-icon fab icon="google-plus"></mdb-icon>
+          </a>
+          <!--Linkedin-->
+          <a type="button" mdbBtn floating="true" size="sm" mdbBtn color="ins" class="waves-light" mdbWavesEffect>
+            <mdb-icon fab icon="linkedin-in"></mdb-icon>
+          </a>
+        </div>
+        <button type="button" mdbBtn color="primary" outline="true" rounded="true" class="ml-4 waves-light" mdbWavesEffect>TRY</button>
+        <button type="button" mdbBtn color="primary" outline="true" rounded="true" class="ml-4 waves-light" mdbWavesEffect data-dismiss="modal"
+          (click)="signin.hide()">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Signin Modal -->
+<!-- <div mdbModal #frame="mdbModal" class="modal fade bottom" id="frameModalTop" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <div class="modal-header primary-color white-text">
+          <h4 class="title">
+            <i class="fa fa-pencil-alt"></i> Contact form</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="frame.hide()">
+              <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <mdb-icon fas icon="envelope" class="prefix grey-text"></mdb-icon>
+          <input type="email" id="defaultForm-email" class="form-control"
+                 mdbInput mdbValidate>
+          <label for="defaultForm-email">Your email</label>
+          
+        </div>
+
+        <div class="md-form mb-4">
+          <mdb-icon fas icon="lock" class="prefix grey-text"></mdb-icon>
+          <input type="password" id="defaultForm-pass"  class="form-control"
+                 mdbInput mdbValidate>
+          <label for="defaultForm-pass">Your password</label>
+          
+
+      </div>
+      <div class="modal-footer d-flex justify-content-center">
+        <button mdbBtn color="default" class="waves-light" mdbWavesEffect>Login</button>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<div mdbModal #frame="mdbModal" class="modal fade bottom" id="frameModalTop" tabindex="-1" role="dialog"
+aria-labelledby="myModalLabel" aria-hidden="true">
+  <!--Modal: Contact form-->
+  <div class="modal-dialog cascading-modal" role="document">
+
+    <!--Content-->
+    <div class="modal-content">
+
+      <!--Header-->
+      <div class="modal-header primary-color white-text">
+        <h4 class="title">SIGN-IN</h4>
+      </div>
+      <!--Body-->
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <mdb-icon fas icon="envelope" class="prefix grey-text"></mdb-icon>
+          <input type="email" id="defaultForm-email" class="form-control"
+                 mdbInput mdbValidate>
+          <label for="defaultForm-email">Email</label>
+          
+        </div>
+
+        <div class="md-form mb-4">
+          <mdb-icon fas icon="lock" class="prefix grey-text"></mdb-icon>
+          <input type="password" id="defaultForm-pass"  class="form-control"
+                 mdbInput mdbValidate>
+          <label for="defaultForm-pass">Password</label>
+          
+
+      </div>
+      
+
+        <div class="modal-footer d-flex justify-content-center">
+          <button mdbBtn color="default" class="waves-light" mdbWavesEffect>LOGIN</button>
+        </div>
+
+      </div>
+    </div>
+    <!--/.Content-->
+  </div>
+  <!--/Modal: Contact form-->
+</div>
+
+<div class="modal-footer d-flex justify-content-center">
+  <button mdbBtn color="default" class="waves-light" mdbWavesEffect>Login</button>
+</div>
