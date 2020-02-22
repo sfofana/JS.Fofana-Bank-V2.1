@@ -5,7 +5,7 @@ let objectId = require('mongoose').Types.ObjectId;
 const { User } = require('../models/user.js'); 
 
 //'/client'
-router.get('/', (request, response)=> {
+router.get('/test', (request, response)=> {
     User.find((error, data) => {
         if(!error) {
             response.send(data);
@@ -42,6 +42,22 @@ router.put('/:id', (request, response)=> {
     };
 
     User.findByIdAndUpdate(request.params.id, { $set: user }, { new: true }, (error, data) => {
+        if(!error) {
+            response.send(data);
+        } 
+        else {
+            console.log('Internal Error with Transaction: ' + JSON.stringify(error, undefined, 2));
+        }
+    });
+});
+
+router.post('/post', (request, response)=> {
+    let user = new User({
+        email: request.body.email,
+        password: request.body.password,
+        checking: request.body.checking
+    });
+    user.save((error, data) => {
         if(!error) {
             response.send(data);
         } 
