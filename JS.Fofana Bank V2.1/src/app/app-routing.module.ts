@@ -1,13 +1,15 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { SignInComponent } from './component/sign-in/sign-in.component';
-import { DepositComponent } from './component/deposit/deposit.component';
-import { ApplyComponent } from './component/apply/apply.component';
-import { TransferComponent } from './component/transfer/transfer.component';
-import { WithdrawComponent } from './component/withdraw/withdraw.component';
+import { SignInComponent } from './components/sign-in/sign-in.component';
+import { DepositComponent } from './components/deposit/deposit.component';
+import { ApplyComponent } from './components/apply/apply.component';
+import { TransferComponent } from './components/transfer/transfer.component';
+import { WithdrawComponent } from './components/withdraw/withdraw.component';
+import { ClientComponent } from './components/client/client.component';
 
 const routes: Routes = [
-  {path: 'sign',component: SignInComponent}, 
+  {path: 'home',component: SignInComponent}, 
+  {path: 'client',component: ClientComponent},
   {path: 'deposit',component: DepositComponent}, 
   {path: 'withdraw',component: WithdrawComponent},
   {path: 'transfer',component: TransferComponent},

@@ -15,28 +15,67 @@
   
         <!-- Grid column -->
         <div class="col-12">
-  
-            <div class="container">
-                <h3>Tabs</h3>
-                <ul class="nav nav-tabs">
-                  <li class="active"><a href="#">Home</a></li>
-                  <li><a routerLink="/sign">Menu 1</a></li>
-                  <li><a routerLink="/deposit">DEPOSIT</a></li>
-                  <li><a routerLink="/withdraw">WITHDRAW</a></li>
-                  <li><a routerLink="/transfer">TRANSFER FUNDS</a></li>
-                  <li><a routerLink="/apply"> APPLY</a></li>
-                </ul>
-                <br>
-                <router-outlet></router-outlet>
-              </div>
- 
+
+          <!--Navbar-->
+<nav class="navbar navbar-expand-lg navbar-dark primary-color">
+
+  <!-- Collapse button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
+    aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- Collapsible content -->
+  <div class="collapse navbar-collapse" id="basicExampleNav">
+
+    <!-- Links -->
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active" (click)="toggle('tab1')">
+        <a class="nav-link" >Profile
+        </a>
+      </li>
+      <li class="nav-item" (click)="toggle('tab2')">
+        <a class="nav-link">DEPOSIT</a>
+      </li>
+      <li class="nav-item" (click)="toggle('tab3')">
+        <a class="nav-link">WITHDRAW</a>
+      </li>
+      <li class="nav-item" (click)="toggle('tab4')">
+        <a class="nav-link">TRANSFER FUNDS</a>
+      </li>
+      <li class="nav-item" (click)="toggle('tab5')">
+        <a class="nav-link"> APPLY</a>
+      </li>
+    </ul>
+    <!-- Links -->
+  </div>
+  <!-- Collapsible content -->
+
+</nav>
+<!--/.Navbar-->
+
+              
         </div>
         <!-- Grid column -->
     
       </div>
       <!-- Grid row -->
       <div class="spacer">
-      <router-outlet></router-outlet>
+        <div *ngIf="view == 'tab1'">
+          <app-sign-in></app-sign-in>
+        </div>
+        <div *ngIf="view == 'tab2'">
+          <app-deposit></app-deposit>
+        </div>
+        <div *ngIf="view == 'tab3'">
+          <app-withdraw></app-withdraw>
+        </div>
+        <div *ngIf="view == 'tab4'">
+          <app-transfer></app-transfer>
+        </div>
+        <div *ngIf="view == 'tab5'">
+          <app-apply></app-apply>
+        </div>
     </div>
     </section>
     <!--Section: Content-->
@@ -74,7 +113,7 @@
               <h4 class="h4 blue-text my-1">Standard</h4>
             </div>
             <div>
-              <i class="fa fa-users fa-4x blue-text p-4"></i>
+              <i class="fa fa-car fa-4x blue-text p-4"></i>
               <h1 class="h1 blue-text">$49</h1>
             </div>
             <div class="card-body">

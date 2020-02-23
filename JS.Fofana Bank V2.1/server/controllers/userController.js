@@ -5,7 +5,7 @@ let objectId = require('mongoose').Types.ObjectId;
 const { User } = require('../models/user.js'); 
 
 //'/client'
-router.get('/test', (request, response)=> {
+router.get('/client/test', (request, response)=> {
     User.find((error, data) => {
         if(!error) {
             response.send(data);
@@ -16,7 +16,7 @@ router.get('/test', (request, response)=> {
     });
 });
 
-router.get('/:id', (request, response)=> {
+router.get('/client/:id', (request, response)=> {
     if (!objectId.isValid(request.params.id)){
         return response.status(400).send('User not found');
     }
@@ -30,7 +30,7 @@ router.get('/:id', (request, response)=> {
     });
 });
 
-router.put('/:id', (request, response)=> {
+router.put('/client/:id', (request, response)=> {
     if (!objectId.isValid(request.params.id)){
         return response.status(400).send('User not found');
     }
@@ -51,7 +51,7 @@ router.put('/:id', (request, response)=> {
     });
 });
 
-router.post('/post', (request, response)=> {
+router.post('/client', (request, response)=> {
     let user = new User({
         email: request.body.email,
         password: request.body.password,

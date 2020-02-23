@@ -1,23 +1,33 @@
 <body>
  
-  <mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar">
-    <div class="container">
-      <a class="navbar-brand">
-        <strong>{{title}}</strong>
-      </a>
-      <app-sign-in></app-sign-in>
-      <button type="button" mdbBtn color="primary" outline="true" rounded="true" class="ml-4 waves-light"  data-toggle="modal" data-target="#basicExample" (click)="signin.show()"
-              mdbWavesEffect>Signin</button>
-              <button type="button" mdbBtn color="default" rounded="true" data-toggle="modal" data-target="#basicExample"
-  (click)="frame.show()" mdbWavesEffect>Launch Modal</button>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-7"
-        aria-controls="navbarSupportedContent-7" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-    </div>
-  </mdb-navbar>
+  <nav class="navbar navbar-expand-lg navbar-dark  fixed-top">
 
-  <app-client></app-client>
+    <!-- Collapse button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
+      aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="basicExampleNav">
+      <div class="container">
+        <a class="navbar-brand">
+          <strong>{{title}}</strong>
+        </a>
+        <button *ngIf="!canLogout" type="button" mdbBtn color="primary" rounded="true" data-toggle="modal" data-target="#basicExample"
+        (click)="frame.show(); cancel()" mdbWavesEffect>SIGN-IN</button>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-7"
+          aria-controls="navbarSupportedContent-7" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <button *ngIf="canLogout" type="button" mdbBtn color="primary" rounded="true" (click)="logout()" mdbWavesEffect>SIGN-OUT</button>
+      </div>
+    </div>
+    <!-- Collapsible content -->
+  
+  </nav>
+
+ 
   <router-outlet></router-outlet>
 </body>
 
@@ -116,7 +126,7 @@ aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-body mx-3">
         <div class="md-form mb-5">
           <mdb-icon fas icon="envelope" class="prefix grey-text"></mdb-icon>
-          <input type="email" id="defaultForm-email" class="form-control"
+          <input type="email" id="defaultForm-email" [(ngModel)]="email" class="form-control"
                  mdbInput mdbValidate>
           <label for="defaultForm-email">Email</label>
           
@@ -124,7 +134,7 @@ aria-labelledby="myModalLabel" aria-hidden="true">
 
         <div class="md-form mb-4">
           <mdb-icon fas icon="lock" class="prefix grey-text"></mdb-icon>
-          <input type="password" id="defaultForm-pass"  class="form-control"
+          <input type="password" id="defaultForm-pass" [(ngModel)]="password" class="form-control"
                  mdbInput mdbValidate>
           <label for="defaultForm-pass">Password</label>
           
@@ -133,7 +143,11 @@ aria-labelledby="myModalLabel" aria-hidden="true">
       
 
         <div class="modal-footer d-flex justify-content-center">
-          <button mdbBtn color="default" class="waves-light" mdbWavesEffect>LOGIN</button>
+          <button mdbBtn color="default" class="waves-light" mdbWavesEffect (click)="login()">LOGIN</button>
+        </div>
+        <div class="modal-footer d-flex justify-content-center">
+          <p class="success" *ngIf="success">{{success}}</p>
+          <p class="invalid" *ngIf="invalid">{{invalid}}</p>
         </div>
 
       </div>
@@ -141,8 +155,4 @@ aria-labelledby="myModalLabel" aria-hidden="true">
     <!--/.Content-->
   </div>
   <!--/Modal: Contact form-->
-</div>
-
-<div class="modal-footer d-flex justify-content-center">
-  <button mdbBtn color="default" class="waves-light" mdbWavesEffect>Login</button>
 </div>
