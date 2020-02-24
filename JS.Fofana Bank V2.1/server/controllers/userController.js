@@ -5,7 +5,7 @@ let objectId = require('mongoose').Types.ObjectId;
 const { User } = require('../models/user.js'); 
 
 //'/client'
-router.get('/client/test', (request, response)=> {
+router.get('/client', (request, response)=> {
     User.find((error, data) => {
         if(!error) {
             response.send(data);
@@ -38,7 +38,7 @@ router.put('/client/:id', (request, response)=> {
     let user = {
         email: request.body.email,
         password: request.body.password,
-        checking: request.body.checking
+        accounts: request.body.accounts
     };
 
     User.findByIdAndUpdate(request.params.id, { $set: user }, { new: true }, (error, data) => {
@@ -55,7 +55,7 @@ router.post('/client', (request, response)=> {
     let user = new User({
         email: request.body.email,
         password: request.body.password,
-        checking: request.body.checking
+        accounts: request.body.accounts
     });
     user.save((error, data) => {
         if(!error) {

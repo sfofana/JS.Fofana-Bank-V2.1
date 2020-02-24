@@ -11,7 +11,7 @@ export class ClientComponent implements OnInit {
 
   private view;
 
-  constructor(private validUser: AppComponent, private router: Router) { }
+  constructor(private session: AppComponent, private router: Router) { }
 
   ngOnInit() {
     this.authentication();
@@ -23,7 +23,7 @@ export class ClientComponent implements OnInit {
   }
 
   authentication(){
-    if(!this.validUser.canLogout){
+    if(!this.session.canLogout){
       this.router.navigate(['']);
     }
   }

@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 export class AppComponent implements OnInit {
   title = "JS.Fofana Bank";
   validatingForm: FormGroup;
-  private user = new User();
+  public user = new User();
   private email = "";
   private password = "";
   private success ="";
