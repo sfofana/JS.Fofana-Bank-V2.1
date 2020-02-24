@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AppComponent } from 'src/app/app.component';
 import { Router } from '@angular/router';
+import { User } from 'src/app/models/user';
 
 @Component({
   selector: 'app-client',
@@ -9,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class ClientComponent implements OnInit {
 
+  private user = new User();
   private view;
 
   constructor(private session: AppComponent, private router: Router) { }
@@ -25,6 +27,9 @@ export class ClientComponent implements OnInit {
   authentication(){
     if(!this.session.canLogout){
       this.router.navigate(['']);
+    }
+    if(this.session.canLogout){
+      this.user = this.session.user;
     }
   }
 }
