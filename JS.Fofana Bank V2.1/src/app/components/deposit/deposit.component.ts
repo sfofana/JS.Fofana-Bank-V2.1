@@ -15,6 +15,8 @@ export class DepositComponent implements OnInit {
   private amount: number = 0;
   private updateAmount: number;
   private option: string;
+  private success: string;
+  private invalid: string;
 
   constructor(private service: UserService, private session: AppComponent) { }
 
@@ -22,27 +24,36 @@ export class DepositComponent implements OnInit {
     this.user = this.session.user;
   }
 
-  deposit(){
+  deposit(): void{
     console.log(this.option);
     console.dir(this.user);
     if(this.option == 'checking'){
       this.updateAmount = this.user.accounts.checking + this.amount;
       this.user.accounts.checking = this.updateAmount;
       this.service.updateUser(this.user._id,this.user).subscribe(data=>this.user=data);
-      console.log('deposited c');
+      this.success='Successfully Deposited $'+this.amount+' to Checking Account';
+      this.invalid ="";
     }
     if(this.option == 'saving'){
       this.updateAmount = this.user.accounts.saving + this.amount;
       this.user.accounts.saving = this.updateAmount;
       this.service.updateUser(this.user._id,this.user).subscribe(data=>this.user=data);
-      console.log('deposited s');
+      this.success='Successfully Deposited $'+this.amount+' to Saving Account';
+      this.invalid ="";
     }
-    // else return;
+    if(!this.option) {
+      this.invalid='Error with Deposit';
+      this.success ="";
+    };
   }
 
   select(option: any){
     this.option = option.target.value;
     console.log(this.option);
+  }
+
+  reset(){
+    this.amount=0;
   }
 
 }

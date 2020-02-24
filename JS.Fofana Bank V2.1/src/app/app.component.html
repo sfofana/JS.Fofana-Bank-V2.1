@@ -64,7 +64,7 @@ aria-labelledby="myModalLabel" aria-hidden="true">
       
 
         <div class="modal-footer d-flex justify-content-center">
-          <button mdbBtn color="default" class="waves-light" mdbWavesEffect (click)="login()">LOGIN</button>
+          <button mdbBtn color="default" class="waves-light" mdbWavesEffect (keyup.enter)="login()" (click)="login()">LOGIN</button>
         </div>
         <div class="modal-footer d-flex justify-content-center">
           <p class="success" *ngIf="success">{{success}}</p>
