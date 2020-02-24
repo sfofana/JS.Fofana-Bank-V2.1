@@ -12,7 +12,8 @@ import { WithdrawComponent } from './components/withdraw/withdraw.component';
 import { ApplyComponent } from './components/apply/apply.component';
 import { TransferComponent } from './components/transfer/transfer.component';
 import { FormsModule } from '@angular/forms';
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from './components/home/home.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { HomeComponent } from './home/home.component';
     WithdrawComponent,
     ApplyComponent,
     TransferComponent,
-    HomeComponent
+    HomeComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

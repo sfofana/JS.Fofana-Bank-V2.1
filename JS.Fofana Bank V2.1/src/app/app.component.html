@@ -14,13 +14,15 @@
         <a class="navbar-brand">
           <strong>{{title}}</strong>
         </a>
+
         <button *ngIf="!canLogout" type="button" mdbBtn color="primary" rounded="true" data-toggle="modal" data-target="#basicExample"
         (click)="frame.show(); cancel()" mdbWavesEffect>SIGN-IN</button>
+        <button *ngIf="canLogout" type="button" mdbBtn color="primary" rounded="true" (click)="logout()" mdbWavesEffect>SIGN-OUT</button>
+
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-7"
           aria-controls="navbarSupportedContent-7" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
-        </button>
-        <button *ngIf="canLogout" type="button" mdbBtn color="primary" rounded="true" (click)="logout()" mdbWavesEffect>SIGN-OUT</button>
+        </button>      
       </div>
     </div>
     <!-- Collapsible content -->
@@ -80,8 +82,8 @@
   <!-- Footer Elements -->
 
   <!-- Copyright -->
-  <div class="footer-copyright text-center py-3">© 2018 Copyright:
-    <a href="https://mdbootstrap.com/education/bootstrap/"> MDBootstrap.com</a>
+  <div class="footer-copyright text-center py-3">
+    <a href="https://mdbootstrap.com/education/bootstrap/"> </a>
   </div>
   <!-- Copyright -->
 
@@ -121,7 +123,7 @@ aria-labelledby="myModalLabel" aria-hidden="true">
       
 
         <div class="modal-footer d-flex justify-content-center">
-          <button mdbBtn color="default" class="waves-light" mdbWavesEffect (keyup.enter)="login()" (click)="login()">LOGIN</button>
+          <button mdbBtn class="btn white-text" mdbWavesEffect (keyup.enter)="login()" (click)="login()">LOGIN</button>
         </div>
         <div class="modal-footer d-flex justify-content-center">
           <p class="success" *ngIf="success">{{success}}</p>

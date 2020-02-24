@@ -47,11 +47,11 @@
         <tbody>
           <tr>
             <td>Checking</td>
-            <td>{{user.accounts.checking}}</td>
+            <td>{{user.accounts.checking | currency}}</td>
           </tr>
           <tr>
             <td>Saving</td>
-            <td>{{user.accounts.saving}}</td>
+            <td>{{user.accounts.saving | currency}}</td>
           </tr>
         </tbody>
         <!--Table body-->
@@ -116,7 +116,7 @@
       <!-- Grid row -->
       <div class="spacer">
         <div *ngIf="view == 'tab1'">
-          
+          <app-profile></app-profile>
         </div>
         <div *ngIf="view == 'tab2'">
           <app-deposit></app-deposit>

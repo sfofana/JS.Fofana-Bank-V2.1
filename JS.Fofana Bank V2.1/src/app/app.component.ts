@@ -17,6 +17,7 @@ export class AppComponent implements OnInit {
   private password = "";
   private success ="";
   private invalid ="";
+  private sessionSet = 'set';
   public canLogout = false;
 
   constructor(private service: UserService, private router: Router) { }
@@ -26,7 +27,10 @@ export class AppComponent implements OnInit {
       loginFormModalEmail: new FormControl('', Validators.email),
       loginFormModalPassword: new FormControl('', Validators.required)
     });
-    this.service.getAllUsers().subscribe(data=>this.user=data[0]);
+    this.service.getAllUsers().subscribe(data=>{
+      this.user=data[0];
+      localStorage[data[0].email]= this.sessionSet;
+    });
   }
 
   get loginFormModalEmail() {
@@ -59,6 +63,7 @@ export class AppComponent implements OnInit {
 
   logout(){
     this.router.navigate(['']);
+    localStorage.clear();
     this.canLogout=false;
   }
 }

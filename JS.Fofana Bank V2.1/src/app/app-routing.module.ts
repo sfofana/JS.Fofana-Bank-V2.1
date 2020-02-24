@@ -5,7 +5,7 @@ import { ApplyComponent } from './components/apply/apply.component';
 import { TransferComponent } from './components/transfer/transfer.component';
 import { WithdrawComponent } from './components/withdraw/withdraw.component';
 import { ClientComponent } from './components/client/client.component';
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from './components/home/home.component';
 
 const routes: Routes = [ 
   {path: 'home',component: HomeComponent},
