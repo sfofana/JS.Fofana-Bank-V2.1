@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser= require('body-parser');
 const cors = require('cors');
+const PORT = process.env.PORT || 3000;
 
 const { mongoose } = require('./driver.js');
 let userController = require('./controllers/userController.js');
@@ -10,5 +11,5 @@ app.use(bodyParser.json());
 app.use(cors());
 app.use('/', userController);
 
-app.listen(3000, ()=> console.log('Server started on port 3000'));
+app.listen(PORT, ()=> console.log('Server started on port 3000'));
 

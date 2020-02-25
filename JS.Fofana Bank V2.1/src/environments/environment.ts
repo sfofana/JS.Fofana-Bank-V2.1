@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  url: "http://localhost:3000/client"
+  url: "https://node-jsfofana-bank-v2.herokuapp.com/client"
 };
 
 /*
